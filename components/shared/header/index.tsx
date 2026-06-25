@@ -18,13 +18,13 @@ export default function Header() {
         <div className="space-x-2">
           <ThemeToggle />
           <Button asChild>
-            <Link href="/cart">
+            <Link href="/cart" className="flex items-center justify-center gap-x-2">
               <ShoppingCart />
               <p className="hidden md:block">سبد خرید</p>
             </Link>
           </Button>
           <Button>
-            <Link href="/sign-in">
+            <Link href="/sign-in" className="flex items-center justify-center gap-x-2">
               <UserIcon />
               <p className="hidden md:block">حساب کاربری</p>
             </Link>
