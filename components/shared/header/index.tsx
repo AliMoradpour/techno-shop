@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, UserIcon } from "lucide-react";
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
@@ -13,16 +14,19 @@ export default function Header() {
             <span className="block font-bold text-2xl mr-3">تکنوشاپ</span>
           </Link>
         </div>
-        {/* user and cart */}
+        {/* user and cart and Theme Toggle */}
         <div className="space-x-2">
+          <ThemeToggle />
           <Button asChild>
             <Link href="/cart">
-              <ShoppingCart /> سبد خرید
+              <ShoppingCart />
+              <p className="hidden md:block">سبد خرید</p>
             </Link>
           </Button>
           <Button>
             <Link href="/sign-in">
-              <UserIcon /> حساب کاربری
+              <UserIcon />
+              <p className="hidden md:block">حساب کاربری</p>
             </Link>
           </Button>
         </div>

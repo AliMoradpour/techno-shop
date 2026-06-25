@@ -3,8 +3,9 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "next-themes";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,8 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa-IR" dir="rtl" className={cn("antialiased", kahrobaFont.className, "font-sans", geist.variable)}>
-      <body className="min-h-full flex flex-col" cz-shortcut-listen="true">{children}</body>
+    <html lang="fa-IR" dir="rtl" className={cn("antialiased", kahrobaFont.className, "font-sans", geist.variable)} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col" cz-shortcut-listen="true">
+        <ThemeProvider
+          attribute='class'
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        />
+        {children}
+      </body>
     </html>
   );
 }
