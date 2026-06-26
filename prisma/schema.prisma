@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../generated/prisma"
 }
 
@@ -15,7 +15,7 @@ model Product {
   image String
   brand String
   description String
-  stock String
+  stock Int
   price Int @default(0)
   createdAt DateTime @default(now())
 }
