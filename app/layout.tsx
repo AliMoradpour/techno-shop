@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa-IR" dir="rtl" className={cn("antialiased", kahrobaFont.className, "font-sans", geist.variable)}>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col" cz-shortcut-listen="true">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
