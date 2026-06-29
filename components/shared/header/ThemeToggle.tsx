@@ -23,6 +23,14 @@ export default function ThemeToggle() {
     setMounted(true);
   }, []);
 
+  if (!mounted) {
+    return (
+      <Button variant="ghost" className="focus-visible:ring-0 focus-visible:ring-offset-0">
+        <SunMoon />
+      </Button>
+    );
+  }
+
   return (
     <>
       <DropdownMenu>

@@ -22,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa-IR" dir="rtl" className={cn("antialiased", kahrobaFont.className, "font-sans", geist.variable)} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col" cz-shortcut-listen="true">
+    <html lang="fa-IR" dir="rtl" className={cn("antialiased", kahrobaFont.className, "font-sans", geist.variable)}>
+      <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
