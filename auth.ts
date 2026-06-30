@@ -48,11 +48,19 @@ export const config = {
     async session({ session, user, trigger, token }: any) {
       session.user.id = token.sub;
 
+      session.user.role = token.role;
+
       if (trigger === "update") {
         session.user.name = user.name;
       }
 
       return session;
+    },
+    async jwt({ token, user, trigger, session }: any) {
+      if (user) {
+        token.role = user.role;
+      }
+      return token;
     },
   },
 } satisfies NextAuthConfig;
