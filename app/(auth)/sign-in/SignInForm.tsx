@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -13,8 +14,12 @@ export default function SignInForm() {
     message: "",
   });
 
+  const searchparams = useSearchParams();
+  const callbackUrl = searchparams.get("callbackUrl") || "/";
+
   return (
     <form action={action}>
+      <input type="hidden" name="callbackUrl" value={callbackUrl} />
       <div className="space-y-6">
         <div>
           <Label htmlFor="email" className="mb-2">
