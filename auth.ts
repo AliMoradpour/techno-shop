@@ -18,6 +18,8 @@ export const config = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
+      id: "email-login",
+      name: "Email Login",
       credentials: {
         email: { type: "email" },
         password: { type: "password" },
@@ -39,6 +41,31 @@ export const config = {
               role: user.role,
             };
           }
+        }
+        return null;
+      },
+    }),
+    CredentialsProvider({
+      id: "mobile-name",
+      name: "Mobile Login",
+      credentials: {
+        mobile: {
+          label: "mobile",
+          type: "text",
+        },
+      },
+      async authorize(credentials) {
+        if (credentials?.mobile === null) return null;
+        const user = await prisma.user.findUnique({
+          where: { mobile: credentials.mobile as string },
+        });
+        if (user) {
+          return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+          };
         }
         return null;
       },
