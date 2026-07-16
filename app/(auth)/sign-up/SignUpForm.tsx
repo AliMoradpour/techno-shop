@@ -37,7 +37,13 @@ export default function SignUpForm() {
           <Label htmlFor="email" className="mb-2">
             ایمیل
           </Label>
-          <Input id="email" type="text" name="email" required autoComplete="email" />
+          <Input id="email" type="email" name="email" required autoComplete="email" />
+        </div>
+        <div>
+          <Label htmlFor="mobile" className="mb-2">
+            موبایل
+          </Label>
+          <Input id="mobile" type="text" name="mobile" required autoComplete="email" />
         </div>
         <div>
           <Label htmlFor="password" className="mb-2">
