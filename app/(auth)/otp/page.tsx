@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { redirect } from "next/navigation";
 import OtpForm from "./OtpForm";
 
-async function SignInPage(props: { searchParams: Promise<{ callbackUrl: string }> }) {
+export default async function SignInPage(props: { searchParams: Promise<{ callbackUrl: string }> }) {
   const { callbackUrl } = await props.searchParams;
 
   const session = await auth();
